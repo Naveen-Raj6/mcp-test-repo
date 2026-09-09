@@ -1,75 +1,54 @@
-# React + TypeScript + Vite
+# 📂 Modern Interactive File Explorer & Document Suite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack, real-time file explorer, media player, code editor, and document viewer application built with **React**, **FastAPI**, **Monaco Editor**, and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+It allows users to safely search, preview, stream, and edit local machine files across various formats including source code, videos, audios, spreadsheets, images, and documents—all wrapped in a smooth, dark-themed, animated interface powered by **Framer Motion**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📸 Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **⚡ Ultra-Fast Search & Navigation:** Search local workspace files dynamically via relative or absolute filesystem paths without server crashing or traversal locks.
+- **💻 VS Code-Grade Editor:** Integrated **Monaco Editor** (`@monaco-editor/react`) for live editing Python, JavaScript, TypeScript, JSON, Markdown, and plain text files with built-in export/save workflows.
+- **🎥 Custom Animated Media Player:** Interactive video and audio streaming player supporting `.mp4`, `.webm`, `.mkv`, `.mp3`, `.wav`, and `.ogg` with custom controls and drop-to-play support.
+- **📊 Dynamic Spreadsheet Engine:** Parsed preview of `.xlsx`, `.xls`, and `.csv` files using `pandas` and clean sticky-header tabular layouts.
+- **🖼️ Rich Image Viewer:** Support for `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`, and `.webp` rendering with animated transitions.
+- **🔒 CORS-Enabled Backend Routing:** Clean FastAPI routing with `uvicorn` reloader and mime-type detection for raw stream handling.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### **Frontend**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Framework:** React (Vite / TypeScript)
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Code Editor:** `@monaco-editor/react` (VS Code engine)
+- **Icons:** `lucide-react`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### **Backend**
 
-```
+- **Framework:** FastAPI (Python 3.10+)
+- **Server:** Uvicorn
+- **Data Processing:** `pandas`, `openpyxl`
+- **Path Utilities:** `pathlib`, `mimetypes`
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📁 Project Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```text
+file-explorer-app/
+├── backend/
+│   ├── main.py              # FastAPI server with path security & stream endpoints
+│   └── requirements.txt     # Python backend dependencies
+└── frontend/
+    ├── src/
+    │   ├── components/
+    │   │   └── FileViewer.tsx # Modern animated multi-format viewer & Monaco editor
+    │   ├── App.tsx          # Main layout and path search bar
+    │   └── main.tsx         # React app entry point
+    ├── package.json         # Frontend dependencies
+    └── tailwind.config.js   # Tailwind CSS configuration
 ```

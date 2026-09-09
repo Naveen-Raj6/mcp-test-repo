@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lucide-react": "^1.42.0",
+    "@monaco-editor/react": "^4.7.0",
+    "canvas-datagrid": "^0.4.7",
+    "framer-motion": "^13.2.0",
+    "lucide-react": "^1.43.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
