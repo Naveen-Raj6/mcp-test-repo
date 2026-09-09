@@ -1,0 +1,29 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Frontend build output
+dist/
+**/dist/
+dist-ssr/
+
+# Python caches and environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Logs and local tooling
+*.log
+npm-debug.log*
+.yarn/
+.pnpm-store/
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
